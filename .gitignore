@@ -1,0 +1,14 @@
+# Private design exploration and reference-project context
+.local-design/
+AGENT.local.md
+memory/
+*.local.md
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+coverage/
+verification/
+next-env.d.ts
