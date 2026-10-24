@@ -26,7 +26,7 @@ export function EvidenceAtlas() {
         ) : (
           <>
             <Image
-              src="/assets/evidence-landscape.png"
+              src="/assets/evidence-landscape-v2.png"
               alt="Four dimensional document stacks connected on a warm paper surface"
               fill
               sizes="(max-width: 768px) 100vw, 75vw"
@@ -80,14 +80,6 @@ export function EvidenceAtlas() {
             </button>
           </>
         )}
-        <button
-          className="scene-toggle"
-          aria-pressed={threeD}
-          onClick={() => setThreeD(!threeD)}
-        >
-          <Cube size={16} />
-          {threeD ? "Back to artwork" : "Explore in 3D"}
-        </button>
       </div>
       <aside className="atlas-inspector" aria-live="polite">
         <p className="fine">Illustrative claim · CM-1024</p>
@@ -118,13 +110,6 @@ export function EvidenceAtlas() {
               </div>
             ))}
           </div>
-          <Link
-            href="/app/claims/CM-1024/evidence?compare=1"
-            className="text-link"
-          >
-            Compare documents
-            <ArrowRight size={16} />
-          </Link>
         </div>
       </aside>
       <div
@@ -132,6 +117,14 @@ export function EvidenceAtlas() {
         role="group"
         aria-label="Select a document"
       >
+        <button
+          className="atlas-3d-control"
+          aria-pressed={threeD}
+          onClick={() => setThreeD(!threeD)}
+        >
+          <Cube size={16} />
+          {threeD ? "Back to artwork" : "Explore in 3D"}
+        </button>
         {[
           { id: "conflict", title: "Date mismatch" },
           ...documents.filter((d) =>
@@ -146,6 +139,12 @@ export function EvidenceAtlas() {
             {d.title}
           </button>
         ))}
+        <Link
+          href="/app/claims/CM-1024/evidence?compare=1"
+          className="atlas-compare-link"
+        >
+          Compare documents <ArrowRight size={14} />
+        </Link>
       </div>
     </section>
   );

@@ -391,8 +391,270 @@ small {
   cursor: not-allowed;
 }
 /* Public site */
+.public-site {
+  --orange: #c54300;
+}
+.evidence-hero-stage {
+  position: relative;
+  isolation: isolate;
+  background: url("/assets/evidence-grid-v2.png") center top / 100% 100%
+    no-repeat;
+  border-top: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.evidence-coordinate {
+  font:
+    10px var(--font-mono),
+    monospace;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 54px;
+}
+.evidence-margin {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 2;
+}
+.evidence-margin-left {
+  left: 4.4%;
+}
+.evidence-margin-right {
+  right: 3.6%;
+  align-items: flex-end;
+}
+.evidence-margin a {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px 17px;
+  width: 104px;
+  border: 1px solid #e4e0d6;
+  border-radius: 9px;
+  background: #fdfcf9eb;
+  box-shadow: 0 5px 20px #4e352604;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.evidence-margin a:hover {
+  border-color: #c88a66;
+  transform: translateY(-3px);
+}
+.evidence-margin svg {
+  color: var(--orange);
+}
+.evidence-margin strong {
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.5;
+}
+.evidence-margin-left a:nth-of-type(1) {
+  top: 42px;
+}
+.evidence-margin-left a:nth-of-type(2) {
+  top: 212px;
+}
+.evidence-margin-right a {
+  width: 133px;
+  right: 0;
+  display: grid;
+  grid-template-columns: 23px 1fr;
+  column-gap: 10px;
+  padding: 16px 14px;
+}
+.evidence-margin-right a > svg {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.evidence-margin-right a > strong,
+.evidence-margin-right a > span {
+  grid-column: 2;
+}
+.evidence-margin-right a > strong {
+  font-size: 11.5px;
+}
+.evidence-margin-right a:nth-of-type(1) {
+  top: 32px;
+}
+.evidence-margin-right a:nth-of-type(2) {
+  top: 166px;
+}
+.evidence-margin-right a:nth-of-type(3) {
+  top: 286px;
+}
+.evidence-margin a > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+.evidence-margin .margin-link-arrow {
+  position: absolute;
+  top: 16px;
+  right: 13px;
+  color: #87867b;
+}
+.evidence-margin > p {
+  font:
+    8px var(--font-mono),
+    monospace;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+  margin: 0;
+  position: absolute;
+  bottom: 36px;
+}
+.atlas-frame {
+  max-width: 1310px;
+  width: calc(100% - 9%);
+  margin: 0 auto 65px;
+  border: 1px solid #dcded6;
+  border-radius: 9px;
+  background: #fafaf8;
+  outline: 1px solid #e4e2dc;
+  outline-offset: 4px;
+  box-shadow: 0 12px 45px #29251c06;
+  overflow: hidden;
+}
+.atlas-toolbar {
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.atlas-toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.atlas-toolbar strong {
+  font-weight: 550;
+}
+.atlas-toolbar > div > span:not(.orange-dot) {
+  color: var(--muted);
+}
+.atlas-toolbar-hint {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font:
+    8px var(--font-mono),
+    monospace;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+}
+.atlas-frame .atlas {
+  padding: 0 18px 0 0;
+  grid-template-columns: 1fr 310px;
+  gap: 0 18px;
+  min-height: 0;
+}
+.atlas-frame .atlas-visual {
+  height: 460px;
+}
+.atlas-frame .atlas-inspector {
+  box-shadow: none;
+  align-self: start;
+  margin-top: 12px;
+  border-radius: 7px;
+}
+.atlas-frame .atlas-accessible {
+  margin: 0;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+.atlas-compare-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 10px;
+  color: var(--orange);
+}
+.atlas-accessible .atlas-3d-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-color: var(--line);
+  background: white;
+}
+.atlas-frame .atlas-label {
+  transform: none;
+  background: #fffefbf5;
+  border: 1px solid #eee9df;
+  padding: 11px 14px;
+  font-size: 12px;
+  gap: 3px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px #48312408;
+}
+.atlas-frame .atlas-label.bill {
+  left: 17%;
+  top: 15%;
+}
+.atlas-frame .atlas-label.discharge {
+  left: 61%;
+  top: 17%;
+}
+.atlas-frame .atlas-label.receipt {
+  left: 13%;
+  top: 73%;
+}
+.atlas-frame .atlas-label.policy {
+  left: 63%;
+  top: 76%;
+}
+.atlas-frame .conflict-node {
+  left: 40%;
+  top: 48%;
+  border-color: #ebbea5;
+  padding: 15px 18px;
+  font-size: 12px;
+}
+.atlas-frame .inspector-body {
+  padding: 20px;
+}
+.atlas-frame .inspector-body h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.atlas-frame .inspector-body > p {
+  margin-bottom: 14px;
+}
+.atlas-frame .inspector-sources {
+  margin-top: 18px;
+}
+.atlas-frame .inspector-sources .fine {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.atlas-frame .inspector-sources .source-link {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.atlas-frame .inspector-sources > div + div {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.atlas-frame .source-date {
+  padding-left: 24px;
+}
+.final-cta {
+  background: url("/assets/evidence-grid.png") center / cover no-repeat;
+}
 .public-header {
-  height: 100px;
+  height: 86px;
   max-width: 1440px;
   margin: auto;
   padding: 0 6%;
@@ -419,7 +681,7 @@ small {
 }
 .landing-hero {
   text-align: center;
-  padding: 55px 20px 15px;
+  padding: 24px 20px 15px;
   position: relative;
   z-index: 1;
 }
@@ -432,8 +694,8 @@ small {
   margin-bottom: 24px;
 }
 .landing-hero h1 {
-  font-size: clamp(50px, 6.4vw, 92px);
-  font-weight: 600;
+  font-size: clamp(50px, 6.1vw, 88px);
+  font-weight: 650;
   line-height: 1.02;
   letter-spacing: -0.065em;
 }
@@ -441,7 +703,7 @@ small {
   font-size: 18px;
   color: #555853;
   line-height: 1.6;
-  margin: 23px 0 27px;
+  margin: 15px 0 20px;
 }
 .hero-actions {
   display: flex;
@@ -449,6 +711,10 @@ small {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+.landing-hero .hero-actions .button {
+  padding-left: 22px;
+  padding-right: 22px;
 }
 .hero-trust {
   font-size: 12px;
@@ -3051,6 +3317,116 @@ small {
   }
   .atlas-label:hover,
   .atlas-label.selected {
+    transform: none;
+  }
+}
+@media (max-width: 1200px) {
+  .evidence-margin {
+    display: none;
+  }
+  .atlas-toolbar-hint {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .atlas-frame {
+    width: calc(100% - 48px);
+    margin-bottom: 40px;
+  }
+  .atlas-frame .atlas {
+    grid-template-columns: 1fr 270px;
+  }
+  .atlas-frame .atlas-visual {
+    height: 450px;
+  }
+}
+@media (max-width: 768px) {
+  .evidence-hero-stage {
+    background-size: auto 100%;
+    padding-bottom: 12px;
+  }
+  .evidence-coordinate {
+    font-size: 8px;
+    margin-bottom: 26px;
+  }
+  .atlas-frame {
+    width: calc(100% - 32px);
+    border-radius: 9px;
+  }
+  .atlas-toolbar {
+    padding: 14px 16px;
+    font-size: 10px;
+  }
+  .atlas-toolbar > div {
+    gap: 9px;
+  }
+  .atlas-toolbar-divider {
+    display: none;
+  }
+  .atlas-toolbar > div > span:last-child {
+    flex-basis: 100%;
+    padding-left: 15px;
+    font-size: 9px;
+  }
+  .atlas-frame .atlas {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 16px;
+    gap: 12px;
+  }
+  .atlas-frame .atlas-visual {
+    height: 400px;
+    width: 100%;
+  }
+  .atlas-frame .atlas-inspector {
+    margin: 0 14px;
+    align-self: stretch;
+  }
+  .atlas-frame .atlas-accessible {
+    padding: 0 12px;
+  }
+  .final-cta {
+    background-size: auto 100%;
+  }
+}
+@media (max-width: 480px) {
+  .atlas-frame .atlas-visual {
+    height: 210px;
+  }
+  .atlas-frame .atlas-label {
+    font-size: 10px;
+    padding: 9px;
+  }
+  .atlas-frame .atlas-label span {
+    font-size: 9px;
+  }
+  .atlas-frame .conflict-node {
+    font-size: 10px;
+    left: 31%;
+    padding: 10px 12px;
+  }
+  .atlas-frame .atlas-label.bill {
+    left: 9%;
+    top: 7%;
+  }
+  .atlas-frame .atlas-label.discharge {
+    left: 61%;
+    top: 9%;
+  }
+  .atlas-frame .atlas-label.receipt {
+    left: 6%;
+    top: 65%;
+  }
+  .atlas-frame .atlas-label.policy {
+    left: 64%;
+    top: 66%;
+  }
+  .atlas-frame .conflict-node {
+    top: 39%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .evidence-margin a:hover {
     transform: none;
   }
 }

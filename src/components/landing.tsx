@@ -3,7 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, Play, List, X, ArrowUpRight } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  Play,
+  List,
+  X,
+  ArrowUpRight,
+  FileText,
+  HouseLine,
+  CalendarCheck,
+  Sparkle,
+  DotsThree,
+} from "@phosphor-icons/react";
 import { Brand, ButtonLink } from "./ui";
 import { EvidenceAtlas } from "./evidence-atlas";
 import { ClaimReplay } from "./claim-replay";
@@ -12,7 +23,7 @@ export function Landing() {
   const [menu, setMenu] = useState(false);
   const reduce = useReducedMotion();
   return (
-    <>
+    <div className="public-site">
       <header className="public-header">
         <Brand />
         <nav className={menu ? "open" : ""} aria-label="Main navigation">
@@ -40,31 +51,88 @@ export function Landing() {
         </button>
       </header>
       <main id="main">
-        <motion.section
-          className="landing-hero"
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reduce ? 0 : 0.55 }}
-        >
-          <h1>
-            Understand your
-            <br />
-            insurance claim.
-          </h1>
-          <p className="hero-description">
-            Every status. Every document. Every deduction.
-            <br className="mobile-break" /> Explained with evidence.
-          </p>
-          <div className="hero-actions">
-            <ButtonLink href="/onboarding">Understand a claim</ButtonLink>
-            <a className="button secondary" href="#claim-replay">
-              <Play size={16} />
-              See how ClaimMe works
+        <div className="evidence-hero-stage">
+          <nav
+            className="evidence-margin evidence-margin-left"
+            aria-label="Explore example claim sources"
+          >
+            <Link href="/app/claims/CM-1024/evidence?doc=bill">
+              <FileText size={23} />
+              <strong>Hospital bill</strong>
+              <span>12 Oct 2026</span>
+            </Link>
+            <Link href="/app/claims/CM-1024/messages">
+              <HouseLine size={23} />
+              <strong>Document received</strong>
+              <span>16 Oct 2026</span>
+            </Link>
+            <p>[ CLAIM FLOW ]</p>
+          </nav>
+          <nav
+            className="evidence-margin evidence-margin-right"
+            aria-label="Explore example claim context"
+          >
+            <Link href="/app/claims/CM-1024/evidence?compare=1">
+              <CalendarCheck size={23} />
+              <strong>Date verification</strong>
+              <span>13 Oct 2026</span>
+            </Link>
+            <Link href="/app/claims/CM-1024/policy">
+              <FileText size={23} />
+              <strong>Policy clause</strong>
+              <span>Clause 2.1</span>
+            </Link>
+            <a href="#how-it-works">
+              <Sparkle size={25} />
+              <strong>Explanation</strong>
+              <span>With evidence</span>
             </a>
+            <p>[ INSURER DECISION ]</p>
+          </nav>
+          <motion.section
+            className="landing-hero"
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduce ? 0 : 0.55 }}
+          >
+            <p className="evidence-coordinate">[ EVIDENCE, CONNECTED ]</p>
+            <h1>
+              Understand your
+              <br />
+              <span className="accent">insurance claim.</span>
+            </h1>
+            <p className="hero-description">
+              Every status. Every document. Every deduction.
+              <br className="mobile-break" /> Explained with evidence.
+            </p>
+            <div className="hero-actions">
+              <ButtonLink href="/onboarding">Understand a claim</ButtonLink>
+              <a className="button secondary" href="#claim-replay">
+                <Play size={16} />
+                See how ClaimMe works
+              </a>
+            </div>
+            <p className="hero-trust">
+              ClaimMe explains. Your insurer decides.
+            </p>
+          </motion.section>
+        </div>
+        <div className="atlas-frame">
+          <div className="atlas-toolbar">
+            <div>
+              <span className="orange-dot" />
+              <strong>The evidence atlas</strong>
+              <span className="atlas-toolbar-divider">/</span>
+              <span>Illustrative claim · CM-1024</span>
+            </div>
+            <DotsThree
+              size={24}
+              className="atlas-toolbar-hint"
+              aria-hidden="true"
+            />
           </div>
-          <p className="hero-trust">ClaimMe explains. Your insurer decides.</p>
-        </motion.section>
-        <EvidenceAtlas />
+          <EvidenceAtlas />
+        </div>
         <section id="claim-replay" className="landing-section replay-section">
           <p className="eyebrow section-label">Claim Replay</p>
           <h2>The same status. A different reason.</h2>
@@ -235,6 +303,6 @@ export function Landing() {
           Illustrative demo. Not an insurer.
         </p>
       </footer>
-    </>
+    </div>
   );
 }
